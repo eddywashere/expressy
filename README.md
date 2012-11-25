@@ -1,6 +1,8 @@
-## Express.js starter app
+## Expressy
 
-This recipe includes jade, coffee & stylus on the clientside. Build's upon the basic app but with a bit more organization and features.
+Just another express mvc boilerplate. I built this to learn and explore app development with express.
+
+This recipe includes jade templating with coffee & stylus for the clientside. Build's upon the basic app but *will have a bit more organization and features.
 
 Install dependencies
 
