@@ -1,6 +1,6 @@
 ## Express.js starter app
 
-This recipe includes jade, coffee & stylus on the clientside.
+This recipe includes jade, coffee & stylus on the clientside. Build's upon the basic app but with a bit more organization and features.
 
 Install dependencies
 
