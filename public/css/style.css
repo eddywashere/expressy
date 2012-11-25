@@ -6,23 +6,57 @@ blockquote,q{quotes:none}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
 table{border-collapse:collapse;border-spacing:0}
 body{font:100%/1.5 "Lucida Grande",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:#00b7ff}
-.l-header{position:fixed;top:0;left:0;width:100%;overflow:hidden;background-color:#333}
-#logo{float:left;}
-#logo a{display:block;width:130px;text-align:center;text-indent:100%;white-space:nowrap;overflow:hidden;padding:1em;background:url("/img/logo.png") no-repeat center center;}
-#logo a:hover{background-color:rgba(0,0,0,0.12)}
-.nav-bar{float:left}
-ul.nav li{float:left;}
-ul.nav li a{float:left;padding:1em;text-decoration:none;color:#e8e8e8;}
-ul.nav li a:hover{background-color:rgba(0,0,0,0.12)}
-.l-content{padding-top:4em;background:#fff}
-.l-footer{position:fixed;bottom:0;left:0;width:100%;background:#ccc;text-align:center}
+a,a:visited{text-decoration:none;color:#2096da}
+a:hover{text-decoration:underline;color:#157bb6}
+a:focus{color:#2096da;outline:none}
+section p{margin:0 0 1.5em;}
+section p small{font-size:.667em;color:#666}
+section h1,section h2,section h3,section h4,section h5,section h6{margin:0 0 .667em;color:#000;text-rendering:optimizelegibility;}
+section h1 small,section h2 small,section h3 small,section h4 small,section h5 small,section h6 small{font-family:"Lucida Grande",Helvetica,Arial,sans-serif;font-weight:normal;color:#333}
+section h1{font-size:2.953em;}
+section h1 small{font-size:1.969em;line-height:1;display:block}
+section h2{font-size:2.25em;}
+section h2 small{font-size:22px}
+section h3{font-size:1.969em;color:#333;}
+section h3 small{font-size:16px}
+section h4{font-size:1.5em;}
+section h4 small{font-size:12px}
+section h5{font-size:1.313em}
+section h6{font-size:1em;color:#666;text-transform:uppercase}
+section ul ul,section ul ol,section ol ol,section ol ul{margin-bottom:0}
+section ul{list-style:disc;padding:0;margin:0 0 .667em 1.5em}
+section ol{list-style:decimal;padding:0;margin:0 0 .667em 1.969em}
+section li{line-height:1.5}
+section dl{margin-bottom:.667em;font-size:1em}
+section dt,section dd{line-height:1.5}
+section dt{font-weight:bold}
+section dd{margin-left:1.5em;font-size:.875em}
+section hr{clear:both;display:block;height:0;border:0;border-top:1px solid rgba(0,0,0,0.12);border-bottom:1px solid rgba(255,255,255,0.15);margin:1.5 0}
+section strong{font-weight:400}
+section em{font-style:italic}
+section abbr{font-size:90%;text-transform:uppercase;border-bottom:1px dotted #ddd;cursor:help}
+section blockquote{padding:0 0 0 1.5em;margin:0 0 1.5em;border-left:5px solid #999;color:#999;}
+section blockquote p{margin-bottom:0;}
+section blockquote p span{color:#666;font-style:italic}
+section blockquote small{display:block;line-height:1.5;color:#666;}
+section blockquote small:before{content:'\2014 \00A0'}
+@media only screen and (max-width: 640px){section{padding:0 1em}
+}.l-header{position:fixed;top:0;left:0;right:0;width:100%;overflow:hidden;background-color:#333;height:2em;line-height:1;z-index:1030}
+.l-logo{float:left;}
+.l-logo a{display:block;width:130px;text-align:center;text-indent:100%;white-space:nowrap;overflow:hidden;padding:.5em 1em;line-height:1;background:url("/img/logo.png") no-repeat center center;}
+.l-logo a:hover{background-color:rgba(0,0,0,0.12)}
+.l-menu > li{float:left;}
+.l-menu > li > a{float:left;padding:.5em 1em;text-decoration:none;color:#e8e8e8;}
+.l-menu > li > a:hover{background-color:rgba(0,0,0,0.12)}
 .l-container{overflow:hidden;margin:0 auto;max-width:950px}
-.seam{clear:both;display:block;height:0;border-top:1px solid rgba(0,0,0,0.12);border-bottom:1px solid rgba(255,255,255,0.15)}
+.l-content{padding-top:4em;background:#fff}
+.l-footer{position:fixed;bottom:0;left:0;right:0;width:100%;background:#ccc;text-align:center;}
+.l-footer p{padding:.5em 1em;line-height:1}
+.seam{clear:both;display:block;height:0;border:0;border-top:1px solid rgba(0,0,0,0.12);border-bottom:1px solid rgba(255,255,255,0.15)}
 html,body,.wrapper{height:100%}
 body > .wrapper{min-height:100%;height:auto;background:#fff}
 .l-footer{clear:both;margin-top:-2em;height:2em}
 .l-content{padding-bottom:4em}
 @media only screen and (max-height: 600px){.l-header,.l-footer{position:relative}
-.l-content{padding-top:1em}
+.l-content{padding-top:2em}
 }

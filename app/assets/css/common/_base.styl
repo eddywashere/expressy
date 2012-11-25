@@ -1,105 +1,178 @@
+// base styles only
+
 body
-  font: 100%/1.5 "Lucida Grande", Helvetica, Arial, sans-serif
+  font: 100%/1.5 $fonts
   -webkit-font-smoothing: antialiased
-a
-  color: #00B7FF
 
+a, a:visited {
+  text-decoration: none;
+  color: $linkColor;
+}
 
-// .l-wrapper
-//   - .l-header
-//   -- .l-container
-//   - .l-content
-//   -- .l-container
-//   .l-footer
-//   - .l-container
+a:hover {
+  text-decoration: underline;
+  color: $linkHover;
+}
+  
+a:focus {
+  color: $linkColor; 
+  outline: none;
+}
 
-.l-header
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  overflow: hidden
-  background-color: #333
-
-#logo
-  float: left
-  a
-    display: block
-    width: 130px
-    text-align: center
-    text-indent: 100%
-    white-space: nowrap
-    overflow: hidden
-    padding: 1em
-    background: url(/img/logo.png) no-repeat center center
-    &:hover
-        background-color: rgba(0, 0, 0, .12)
-
-.nav-bar
-  float: left
-
-ul.nav
-  li
-    float: left
-    a
-      float: left
-      padding: 1em
-      text-decoration: none
-      color: #e8e8e8
-      &:hover
-        background-color: rgba(0, 0, 0, .12) 
-
-.l-content 
-  padding-top: 4em
-  background: #fff
-
-
-.l-footer 
-  position: fixed
-  bottom: 0
-  left: 0
-  width: 100%
-  background: #ccc
-  text-align: center
-
-
-.l-container 
-  overflow: hidden
-  margin: 0 auto
-  max-width: 950px
-
-.seam
-  seam()
-
-
-
-// Sticky Footer
-
-html, body, .wrapper  
-  height: 100%
-
-
-body > .wrapper 
-  min-height: 100%
-  height: auto
-  background: #fff
-
-
-.l-footer  
-  clear: both 
-  margin-top: -2em
-  height: 2em
-
-
-/* extra padding because of .l-content's original padding: 20px */
-.l-content  
-  padding-bottom: 4em
-
-@media only screen and (max-height: 600px) {
-  .l-header, .l-footer {
-    position: relative;
+section
+  p {
+    margin: 0 0 $size4;
+    small {
+      font-size: $size8;
+      color: $light;
+    }
   }
-  .l-content {
-    padding-top: 1em;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 $size8;
+    color: $darker;
+    text-rendering: optimizelegibility;
+    small {
+      font-family: $fonts;
+      font-weight: normal;
+      color: $dark;
+    }
+  }
+
+  h1 {
+    font-size: $size1
+    small {
+      font-size: $size3;
+      line-height: 1;
+      display:block;
+    }
+  }
+  h2 {
+    font-size: $size2;
+    //  border-bottom: 1px solid #CCC;
+    small {
+      font-size: 22px;
+    }
+  }
+  h3 {
+    font-size: $size3;
+    color: $dark;
+    small {
+      font-size: 16px;
+    }
+  }
+  h4, h5, h6 {
+
+  }
+  h4 {
+    font-size: $size4;
+    small {
+      font-size: 12px;
+    }
+  }
+  h5 {
+    font-size: $size5;
+  }
+  h6 {
+    font-size: $size6;
+    color: $light;
+    text-transform: uppercase;
+  }
+
+
+  // LISTS
+  // -----
+
+  // Unordered and Ordered lists
+
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul {
+    margin-bottom: 0;
+  }
+  ul {
+    list-style: disc;
+    padding: 0;
+    margin: 0 0 $size8 $size4;
+  }
+  ol {
+    list-style: decimal;
+    padding: 0;
+    margin: 0 0 $size8 $size3;
+  }
+  li {
+    line-height: $baseLineHeight;
+  }
+
+  // Description Lists
+  dl {
+    margin-bottom: $size8;
+    font-size:$baseFontSize;
+  }
+  dt,
+  dd {
+    line-height: $baseLineHeight;
+  }
+  dt {
+    font-weight: bold;
+  }
+  dd {
+    margin-left: $size4;
+    font-size: $size7;
+  }
+
+  // MISC
+  // ----
+
+  // Horizontal rules
+  hr {
+    seam()
+    margin: $baseLineHeight 0;
+  }
+
+  // Emphasis
+  strong {
+    font-weight: 400;
+  }
+  em {
+    font-style: italic;
+  }
+
+  // Abbreviations and acronyms
+  abbr {
+    font-size: 90%;
+    text-transform: uppercase;
+    border-bottom: 1px dotted #ddd;
+    cursor: help;
+  }
+
+  // Blockquotes
+
+  blockquote {
+    padding: 0 0 0 $size4;
+    margin: 0 0 $size4;
+    border-left: 5px solid $lighter;
+    color: $lighter;
+    p {
+      margin-bottom: 0;
+      span {
+        color: $light;
+        font-style: italic;
+      }
+    }
+    small {
+      display: block;
+      line-height: $baseLineHeight;
+      color: $light;
+      &:before {
+        content: '\2014 \00A0';
+      }
+    }
+  }
+
+@media $screen-small {
+  section {
+    padding: 0 1em;
   }
 }

@@ -1,0 +1,117 @@
+/***
+  conventions via https://github.com/necolas/idiomatic-css
+
+  LAYOUT
+
+  .l-wrapper
+  - .l-header
+  -- .l-container
+  - .l-content
+  -- .l-container
+  .l-footer
+  - .l-container
+
+  // sticky css at the bottom of this file
+
+  Properties ordered by position > display/box > color > text > other
+  @tag This is a tag named 'tag'
+  @todo This is a todo statement that describes an atomic task to be completed
+
+***/
+
+.l-header
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  width: 100%
+  overflow: hidden
+  background-color: #333
+  height: 2em;
+  line-height: 1;
+  z-index: 1030
+
+.l-logo
+  float: left
+  a
+    display: block
+    width: 130px
+    text-align: center
+    text-indent: 100%
+    white-space: nowrap
+    overflow: hidden
+    padding: .5em 1em
+    line-height: 1;
+    background: url(/img/logo.png) no-repeat center center
+    &:hover
+        background-color: rgba(0, 0, 0, .12)
+
+.l-menu
+  & > li
+    float: left
+    & > a
+        float: left
+        padding: .5em 1em
+        text-decoration: none
+        color: #e8e8e8
+        &:hover
+          background-color: rgba(0, 0, 0, .12) 
+
+.l-container 
+  overflow: hidden
+  margin: 0 auto
+  max-width: 950px
+
+.l-content 
+  padding-top: 4em
+  background: #fff
+
+
+.l-footer 
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+  width: 100%
+  background: #ccc
+  text-align: center
+
+  p
+    padding: .5em 1em
+    line-height: 1;
+
+.seam
+  seam()
+
+
+
+// Sticky stuff
+
+html, body, .wrapper  
+  height: 100%
+
+
+body > .wrapper 
+  min-height: 100%
+  height: auto
+  background: #fff
+
+
+.l-footer  
+  clear: both 
+  margin-top: -2em
+  height: 2em
+
+
+/* extra padding because of .l-content's original padding: 20px */
+.l-content  
+  padding-bottom: 4em
+
+@media only screen and (max-height: 600px) {
+  .l-header, .l-footer {
+    position: relative;
+  }
+  .l-content {
+    padding-top: 2em;
+  }
+}

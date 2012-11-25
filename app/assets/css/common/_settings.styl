@@ -1,6 +1,45 @@
+// vars
+$base-color = #000
+$darker = $base-color
+$dark = lighten( $base-color, 20% )
+$light = lighten( $base-color, 40% )
+$lighter = lighten( $base-color, 60% )
+
+$linkColor = #2096da
+$linkHover = #157bb6
+
+$selection = $light
+
+$fonts-sans-serif = 'Helvetica Neue', Helvetica, Arial, sans-serif
+$fonts-serif = Georgia, Cambria, "Times New Roman", Times, serif
+$fonts = "Lucida Grande", Helvetica, Arial, sans-serif
+
+$size1 = 2.953em
+$size2 = 2.25em
+$size3 = 1.969em
+$size4 = 1.5em
+$size5 = 1.313em
+$size6 = 1em
+$size7 = 0.875em
+$size8 = 0.667em
+$size9 = 0.583em
+$size10 = 0.444em
+$baseFontSize = $size6
+$tabletFontSize = $size7
+$baseLineHeight = 1.5
+
+
+$screen-small = "only screen and (max-width: 640px)"
+$screen-medium = "only screen and (max-width: 1024px)"
+$screen-large = "only screen and (max-width: 1140px)"
+$screen-retina = "only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5)"
+
+
+//mixin or functions or whatever these are
 seam()
   clear: both
   display: block
   height: 0px
+  border: 0
   border-top: 1px solid rgba(0, 0, 0, .12)
   border-bottom: 1px solid rgba(255, 255, 255, .15)
