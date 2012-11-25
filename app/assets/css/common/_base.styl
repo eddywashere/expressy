@@ -1,0 +1,105 @@
+body
+  font: 100%/1.5 "Lucida Grande", Helvetica, Arial, sans-serif
+  -webkit-font-smoothing: antialiased
+a
+  color: #00B7FF
+
+
+// .l-wrapper
+//   - .l-header
+//   -- .l-container
+//   - .l-content
+//   -- .l-container
+//   .l-footer
+//   - .l-container
+
+.l-header
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  overflow: hidden
+  background-color: #333
+
+#logo
+  float: left
+  a
+    display: block
+    width: 130px
+    text-align: center
+    text-indent: 100%
+    white-space: nowrap
+    overflow: hidden
+    padding: 1em
+    background: url(/img/logo.png) no-repeat center center
+    &:hover
+        background-color: rgba(0, 0, 0, .12)
+
+.nav-bar
+  float: left
+
+ul.nav
+  li
+    float: left
+    a
+      float: left
+      padding: 1em
+      text-decoration: none
+      color: #e8e8e8
+      &:hover
+        background-color: rgba(0, 0, 0, .12) 
+
+.l-content 
+  padding-top: 4em
+  background: #fff
+
+
+.l-footer 
+  position: fixed
+  bottom: 0
+  left: 0
+  width: 100%
+  background: #ccc
+  text-align: center
+
+
+.l-container 
+  overflow: hidden
+  margin: 0 auto
+  max-width: 950px
+
+.seam
+  seam()
+
+
+
+// Sticky Footer
+
+html, body, .wrapper  
+  height: 100%
+
+
+body > .wrapper 
+  min-height: 100%
+  height: auto
+  background: #fff
+
+
+.l-footer  
+  clear: both 
+  margin-top: -2em
+  height: 2em
+
+
+/* extra padding because of .l-content's original padding: 20px */
+.l-content  
+  padding-bottom: 4em
+
+@media only screen and (max-height: 600px) {
+  .l-header, .l-footer {
+    position: relative;
+  }
+  .l-content {
+    padding-top: 1em;
+  }
+}
