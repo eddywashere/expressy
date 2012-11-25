@@ -18,11 +18,13 @@ html(class='no-js')
     .wrapper
       include /_header
       section.l-content
-        .l-container
-          block content
+        .l-inner
+          .l-container
+            block content
     footer.l-footer
-      .l-container
-        p footer content
+      .l-inner
+        .l-container
+          p footer content
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
     script window.jQuery || document.write('<script src="js/jquery.js"><\\/script>')
     script(type='text/javascript', src='/js/script.js')

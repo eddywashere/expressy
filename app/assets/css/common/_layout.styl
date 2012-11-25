@@ -5,11 +5,18 @@
 
   .l-wrapper
   - .l-header
-  -- .l-container
+  -- .l-inner
+  --- .l-container
   - .l-content
-  -- .l-container
+  -- .l-inner
+  --- .l-container
   .l-footer
-  - .l-container
+  -- .l-inner
+  --- .l-container
+  
+  .l-header, .l-content, .l-footer is for full width rows
+  .l-inner is used to set a content margin, otherwise it would mess with 100% rows or the body itself
+  .l-container is a class to contain the content (also max-width) for header,footer, or content(main)
 
   // sticky css at the bottom of this file
 
@@ -31,13 +38,16 @@
   line-height: 1;
   z-index: 1030
 
+.l-inner
+  margin: 0 1em
+
 .l-logo
   float: left
   a
     display: block
     width: 130px
     text-align: center
-    text-indent: 100%
+    text-indent: 200%
     white-space: nowrap
     overflow: hidden
     padding: .5em 1em
@@ -49,6 +59,10 @@
 .l-menu
   & > li
     float: left
+    margin: 0
+    padding: 0
+    list-style: none
+    line-height: 1;
     & > a
         float: left
         padding: .5em 1em
@@ -60,7 +74,7 @@
 .l-container 
   overflow: hidden
   margin: 0 auto
-  max-width: 950px
+  max-width: 64em
 
 .l-content 
   padding-top: 4em
@@ -78,7 +92,11 @@
 
   p
     padding: .5em 1em
+    margin: 0
     line-height: 1;
+
+.l-footer-inner
+  margin: 0 1em
 
 .seam
   seam()
@@ -107,7 +125,7 @@ body > .wrapper
 .l-content  
   padding-bottom: 4em
 
-@media only screen and (max-height: 600px) {
+@media $screen-maxheight {
   .l-header, .l-footer {
     position: relative;
   }
