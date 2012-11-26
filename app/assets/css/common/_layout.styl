@@ -3,13 +3,12 @@
 
   LAYOUT
 
-  .l-wrapper
-  - .l-header
-  -- .l-inner
-  --- .l-container
-  - .l-content
-  -- .l-inner
-  --- .l-container
+  .l-header
+  - .l-inner
+  -- .l-container
+  .l-content
+  - .l-inner
+  -- .l-container
   .l-footer
   -- .l-inner
   --- .l-container
@@ -34,7 +33,6 @@
   width: 100%
   overflow: hidden
   background-color: #333
-  height: 2em;
   line-height: 1;
   z-index: 1030
 
@@ -50,7 +48,7 @@
     text-indent: 200%
     white-space: nowrap
     overflow: hidden
-    padding: .5em 1em
+    padding: 1em
     line-height: 1;
     background: url(/img/logo.png) no-repeat center center
     &:hover
@@ -65,7 +63,7 @@
     line-height: 1;
     & > a
         float: left
-        padding: .5em 1em
+        padding: 1em
         text-decoration: none
         color: #e8e8e8
         &:hover
@@ -103,33 +101,15 @@
 
 
 
-// Sticky stuff
-
-html, body, .wrapper  
-  height: 100%
 
 
-body > .wrapper 
-  min-height: 100%
-  height: auto
-  background: #fff
-
-
-.l-footer  
-  clear: both 
-  margin-top: -2em
-  height: 2em
-
-
-/* extra padding because of .l-content's original padding: 20px */
-.l-content  
-  padding-bottom: 4em
 
 @media $screen-maxheight {
   .l-header, .l-footer {
     position: relative;
   }
+
   .l-content {
-    padding-top: 2em;
+    padding-top: 1em
   }
 }

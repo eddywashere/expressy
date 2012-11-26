@@ -42,12 +42,8 @@ app.configure('development', function(){
   app.locals.pretty = true;
 });
 
-// grab controllers first, then use it in routes
-var homeController = require('./app/controllers');
 // routes
-app.get('/', homeController.index);
-app.get('/about', homeController.about);
-app.get('/test', homeController.test);
+require('./config/routes')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server running at http://localhost:" + app.get('port'));
