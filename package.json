@@ -6,6 +6,10 @@
     "start": "node app",
     "brew": "coffee --watch --compile --output public/js/ app/assets/js/"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:eddywashere/expressy.git"
+  },
   "dependencies": {
     "express": "3.0.3",
     "jade": "*",
@@ -14,5 +18,9 @@
   },
   "devDependencies": {
     "coffee-script": "~1.4.0"
-  }
+  },
+  "engines": {
+    "node": "0.8.x"
+  },
+  "subdomain": "eddywashere.demo"
 }
