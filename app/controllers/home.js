@@ -15,3 +15,17 @@ exports.about = function(req, res){
 exports.test = function(req, res){
   res.render('home/test', { title: 'Starter App - test' });
 };
+
+exports.headers = function(req, res){
+	res.json(req.headers);
+};
+
+exports.mirror = function(req, res){
+	if (req.xhr) {
+		console.log('this was an xhr request')
+	} else {
+		console.log('Not an xhr request')
+	}
+	res.json(req.body);
+};
+

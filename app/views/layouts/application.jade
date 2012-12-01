@@ -11,9 +11,9 @@ html(class='no-js')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    title= title
+    title= locals.title ? title : "expressy"
     link(rel='stylesheet', href='/css/style.css')
-    script(src='js/modernizr.js')
+    script(src='/js/modernizr.js')
   body
     include /_header
     section.l-content

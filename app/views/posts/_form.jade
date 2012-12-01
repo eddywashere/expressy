@@ -1,0 +1,9 @@
+- var action = '/posts'
+if locals.isEdit
+  - action += '/' + '1' // replace with post id 
+form(method='post', action=action)
+  div
+    if locals.isEdit
+      input(type="hidden", name="_method", value="PUT")
+    input(type='text', name='title')
+    input(type='submit', value='Submit')
