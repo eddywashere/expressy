@@ -40,7 +40,7 @@ blockquote p{margin-bottom:0;}
 blockquote p span{color:#666;font-style:italic}
 blockquote small{display:block;line-height:1.5;color:#666;}
 blockquote small:before{content:'\2014 \00A0'}
-.l-header{position:fixed;top:0;left:0;right:0;width:100%;overflow:hidden;background-color:#333;line-height:1;z-index:1030}
+.l-header{position:fixed;top:0;left:0;right:0;width:100%;overflow:hidden;background-color:#333;line-height:1;z-index:10}
 .l-inner{margin:0 1em}
 .l-logo{float:left;}
 .l-logo a{display:block;width:130px;text-align:center;text-indent:200%;white-space:nowrap;overflow:hidden;padding:1em;line-height:1;background:url("/img/logo.png") no-repeat center center;}
@@ -50,7 +50,7 @@ blockquote small:before{content:'\2014 \00A0'}
 .l-menu > li > a:hover{background-color:rgba(0,0,0,0.12)}
 .l-container{overflow:hidden;margin:0 auto;max-width:64em}
 .l-content{padding-top:4em;background:#fff}
-.l-footer{position:fixed;bottom:0;left:0;right:0;width:100%;background:#ccc;text-align:center;}
+.l-footer{position:fixed;bottom:0;left:0;right:0;width:100%;background:#ccc;text-align:center;z-index:10;}
 .l-footer p{padding:.5em 1em;margin:0;line-height:1}
 .l-footer-inner{margin:0 1em}
 .seam{clear:both;display:block;height:0;border:0;border-top:1px solid rgba(0,0,0,0.12);border-bottom:1px solid rgba(255,255,255,0.15)}

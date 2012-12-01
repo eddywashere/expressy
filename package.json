@@ -1,6 +1,6 @@
 {
   "name": "express-starter-app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node app",
@@ -22,5 +22,5 @@
   "engines": {
     "node": "0.8.x"
   },
-  "subdomain": "eddywashere.demo"
+  "subdomain": "expressy.ewh"
 }

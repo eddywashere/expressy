@@ -1,6 +1,6 @@
 ## Expressy
 
-Just another express mvc boilerplate. I built this to learn and explore app development with express.
+Just another express mvc boilerplate. I built this to learn and explore app development with express. Checkout the [demo](http://expressy.ewh.jit.su/).
 
 This recipe includes jade templating with coffee & stylus for the clientside. Build's upon the basic app but *will have a bit more organization and features.
 
