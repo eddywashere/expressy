@@ -14,7 +14,8 @@
     "express": "3.0.3",
     "jade": "*",
     "stylus": "*",
-    "nib": "*"
+    "nib": "*",
+    "mongoose": "~3.4.0"
   },
   "devDependencies": {
     "coffee-script": "~1.4.0"

@@ -23,7 +23,7 @@ module.exports = function(app) {
 	app.get('/posts', posts.index);
 	app.get('/posts/new', posts.new);
 	app.post('/posts', posts.create);
-	app.get('/posts/:id', posts.show);
+	app.get('/posts/:id.:format?', posts.show);
 	app.get('/posts/:id/edit', posts.edit);
 	app.put('/posts/:id', posts.update);
 	app.del('/posts/:id', posts.destroy);

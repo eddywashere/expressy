@@ -12,17 +12,29 @@
  // GET			/posts/:id/edit	 edit		    return an HTML form for editing a post
  // PUT			/posts/:id			 update		  update a specific post
  // DELETE	/posts/:id			 destroy		delete a specific post
+ var mongoose = require('mongoose'),
+ Post = mongoose.model('Post');
 
 exports.index = function(req, res){
   res.render('posts/index', { posts: ['foo', 'bar'] });
 };
 
 exports.show = function(req, res){
-  res.render('posts/show', { id: req.params.id });
+  res.format({
+    html: function(){
+      res.render('posts/show', { id: req.params.id });
+    },
+    
+    json: function(){
+      res.json({ message: 'hey' });
+    }
+  });
 };
 
 exports.new = function(req, res){
-  res.render('posts/new', {});
+  res.render('posts/new', {
+    post: new Post({})
+  });
 };
 
 exports.edit = function(req, res){
@@ -31,7 +43,19 @@ exports.edit = function(req, res){
 
 // redirect to show
 exports.create = function(req, res){
-  res.redirect('posts/1'); // replace with id
+  console.log(req.body);
+  var post = new Post(req.body);
+
+  post.save(function(err){
+    if (err) {
+      res.render('posts/new', {
+        post: post,
+        errors: err.errors
+      });
+    } else {
+      res.redirect('/posts/' + post._id)
+    }
+  });
 };
 
 // redirect to show

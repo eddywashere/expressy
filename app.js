@@ -7,7 +7,19 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , nib = require('nib')
-  , stylus = require('stylus');
+  , stylus = require('stylus')
+  , mongoose = require('mongoose')
+  , fs = require('fs');
+
+db = mongoose.connect('mongodb://localhost/test');
+
+// Bootstrap models
+var models_path = __dirname + '/app/models',
+model_files = fs.readdirSync(models_path);
+
+model_files.forEach(function (file) {
+  require(models_path+'/'+file)
+});
 
 var app = express();
 
