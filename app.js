@@ -11,14 +11,14 @@ var express = require('express')
   , mongoose = require('mongoose')
   , fs = require('fs');
 
-db = mongoose.connect('mongodb://localhost/test');
+mongoose.connect(process.env.MDB || 'mongodb://localhost/test');
 
 // Bootstrap models
 var models_path = __dirname + '/app/models',
 model_files = fs.readdirSync(models_path);
 
 model_files.forEach(function (file) {
-  require(models_path+'/'+file)
+  require(models_path+'/'+file);
 });
 
 var app = express();
@@ -33,6 +33,11 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(express.cookieParser('woot woot woot'));
   app.use(express.session());
+  app.use(express.csrf());
+  app.use(function(req, res, next){
+    res.locals.token = req.session._csrf;
+    next();
+  });
   app.use(app.router);
   app.use(stylus.middleware({
     src: __dirname + '/app/assets',

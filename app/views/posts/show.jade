@@ -3,4 +3,8 @@ extends ../layouts/application
 block content
   h3 Post
   hr
-  p show post
+  p
+    b Title:
+    |  #{post.title}
+  p
+    | <a href="/posts/#{post._id}/edit">Edit</a> | <a href="/posts">Back</a>

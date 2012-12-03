@@ -32,7 +32,7 @@ dt,dd{line-height:1.5}
 dt{font-weight:bold}
 dd{margin-left:1.5em;font-size:.875em}
 hr{clear:both;display:block;height:0;border:0;border-top:1px solid rgba(0,0,0,0.12);border-bottom:1px solid rgba(255,255,255,0.15);margin:1.5 0}
-strong{font-weight:400}
+strong,b{font-weight:bold}
 em{font-style:italic}
 abbr{font-size:90%;text-transform:uppercase;border-bottom:1px dotted #ddd;cursor:help}
 blockquote{padding:0 0 0 1.5em;margin:0 0 1.5em;border-left:5px solid #999;color:#999;}

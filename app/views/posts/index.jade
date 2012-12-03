@@ -3,4 +3,16 @@ extends ../layouts/application
 block content
   h3 Posts
   hr
-  p show posts
+  p
+    a(href='posts/new') New Post 
+  if posts
+    ul
+      each post, i in posts
+        li 
+          form(action="/posts/"+post._id, method="post")
+            if locals.token
+              input(type='hidden', name='_csrf', value=token)
+            input(type="hidden", name="_method", value="DELETE")
+            | <a href="/posts/#{post._id}">#{post.title}</a> - <a href="/posts/#{post._id}/edit">Edit</a> or <input type="submit" value="Destroy">
+  else
+    p you have no posts

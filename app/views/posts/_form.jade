@@ -1,9 +1,9 @@
-- var action = '/posts'
+- var action = '/posts', actionText = 'Create Post'
 if locals.isEdit
-  - action += '/' + '1' // replace with post id 
+  - action += '/' + post._id, actionText = 'Update Post'
 form(method='post', action=action)
-  div
-    if locals.isEdit
-      input(type="hidden", name="_method", value="PUT")
-    input(type='text', name='title', value=post.title)
-    input(type='submit', value='Submit')
+  if locals.isEdit
+    input(type="hidden", name="_method", value="PUT")
+  input(type='hidden', name='_csrf', value=token)
+  input(type='text', name='title', value=post.title)
+  input(type='submit', value=actionText)

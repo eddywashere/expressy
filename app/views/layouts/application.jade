@@ -14,6 +14,8 @@ html(class='no-js')
     title= locals.title ? title : "expressy"
     link(rel='stylesheet', href='/css/style.css')
     script(src='/js/modernizr.js')
+    if (locals.token)
+      meta(content="#{token}", name="csrf-token")
   body
     include /_header
     section.l-content
