@@ -40,6 +40,10 @@ blockquote p{margin-bottom:0;}
 blockquote p span{color:#666;font-style:italic}
 blockquote small{display:block;line-height:1.5;color:#666;}
 blockquote small:before{content:'\2014 \00A0'}
+*{margin:0}
+html,body{height:100%}
+.wrapper{min-height:100%;height:auto !important;height:100%;margin:0 auto -2em;}
+.l-footer,.push{height:2em;}
 .l-header{position:fixed;top:0;left:0;right:0;width:100%;overflow:hidden;background-color:#333;line-height:1;z-index:10}
 .l-inner{margin:0 1em}
 .l-logo{float:left;}

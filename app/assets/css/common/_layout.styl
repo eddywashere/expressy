@@ -25,6 +25,31 @@
 
 ***/
 
+/* stick footer code */
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -2em; /* the bottom margin is the negative value of the footer's height */
+}
+.l-footer, .push {
+  height: 2em; /* .push must be the same height as .footer */
+}
+
+/*
+
+Sticky Footer by Ryan Fait
+http://ryanfait.com/
+
+*/
+
+
 .l-header
   position: fixed
   top: 0

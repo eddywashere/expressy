@@ -17,11 +17,13 @@ html(class='no-js')
     if (locals.token)
       meta(content="#{token}", name="csrf-token")
   body
-    include /_header
-    section.l-content
-      .l-inner
-        .l-container
-          block content
+    .wrapper
+      include /_header
+      section.l-content
+        .l-inner
+          .l-container
+            block content
+      | <div class="push"><!--//--></div>
     footer.l-footer
       .l-inner
         .l-container

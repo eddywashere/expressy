@@ -62,6 +62,13 @@ app.configure('development', function(){
 // routes
 require('./config/routes')(app);
 
+// log any db errors
+mongoose.connection.on('error', function(err) {
+  console.log(":::::::: WARNING: MONGODB ERRROR ::::::");
+  console.log(err);
+  console.log(":::::::::::::::::::::::::::::::::::::::");
+});
+
 http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server running at http://localhost:" + app.get('port'));
+  console.log("Express server listening on port " + app.get('port'));
 });
