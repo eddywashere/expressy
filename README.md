@@ -1,12 +1,22 @@
-## Expressy
+# [Expressy](http://expressy.ewh.jit.su/)
 
 Just another express mvc boilerplate. I built this to learn and explore app development with express. Checkout the [demo](http://expressy.ewh.jit.su/).
 
-This recipe includes jade templating with coffee & stylus for the clientside. Build's upon the basic app but *will have a bit more organization and features.
+This recipe includes jade templating with coffee & stylus for the clientside. Build's upon the basic app but *will have a bit more organization and features. Uses mongodb via mongoose.
+
+## Instructions
+
+Install mongo with homebrew below, or from [http://www.mongodb.org/downloads](http://www.mongodb.org/downloads) 
+
+    brew install mongodb
 
 Install dependencies
 
-	npm install
+	npm install 
+
+Start mongo database
+
+    mongod
 
 Start app with
 
@@ -16,14 +26,19 @@ If you like coffee, compile it with
 
     npm run-script brew
     
-Notes:
+### Notes:
 
 - still not sure about coffeescript, but its there
     - I wish there was an awesome connect middleware equivalent to stylus for coffeescript
         - actually, I wish there was a solid asset manager like sprockets :[
 
-Todo:
+### Todo:
 
 - add db config, models and odm thingy
 - add some css patterns from other projects
 - make this a solid starting point for future projects!
+
+# License
+
+License: [http://eddywashere.mit-license.org](http://eddywashere.mit-license.org)
+
