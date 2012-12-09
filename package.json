@@ -1,6 +1,6 @@
 {
   "name": "express-starter-app",
-  "version": "0.0.2",
+  "version": "0.0.2-5",
   "private": true,
   "main": "app.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "stylus": "*",
     "nib": "*",
     "mongoose": "~3.4.0",
-    "discount": "~0.2.3"
+    "marked": "~0.2.6"
   },
   "devDependencies": {
     "coffee-script": "~1.4.0"
