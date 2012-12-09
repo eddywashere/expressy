@@ -1,31 +1,24 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express')
   , http = require('http')
-  , path = require('path')
+  , fs = require('fs')
   , nib = require('nib')
   , stylus = require('stylus')
-  , mongoose = require('mongoose')
-  , fs = require('fs');
+  , path = require('path')
+  , env = process.env.NODE_ENV || 'development'
+  , config = require('./config/environments')[env];
 
-mongoose.connect(process.env.MDB || 'mongodb://localhost/test');
+// init the db stuff
+require('./config/db')(config.db);
 
-// Bootstrap models
-var models_path = __dirname + '/app/models',
-model_files = fs.readdirSync(models_path);
-
-model_files.forEach(function (file) {
-  require(models_path+'/'+file);
-});
-
+// create the express app
 var app = express();
 
+// configure express
 app.configure(function(){
+  app.disable('x-powered-by');
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/app/views');
+  app.set('cdn', config.cdn);
   app.set('view engine', 'jade');
   app.use(express.favicon(__dirname + '/public/favicon.ico'));
   app.use(express.logger('dev'));
@@ -47,11 +40,11 @@ app.configure(function(){
       return stylus(str)
       .set('filename', path)
       .set('warn', true)
-      .set('compress', true)
+      .set('compress', false)
       .use(nib());
     }  
   }));
-  app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.static(__dirname + '/public'));
 });
 
 app.configure('development', function(){
@@ -59,16 +52,10 @@ app.configure('development', function(){
   app.locals.pretty = true;
 });
 
-// routes
+// configure app routes
 require('./config/routes')(app);
 
-// log any db errors
-mongoose.connection.on('error', function(err) {
-  console.log(":::::::: WARNING: MONGODB ERRROR ::::::");
-  console.log(err);
-  console.log(":::::::::::::::::::::::::::::::::::::::");
-});
-
+// run that server
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });

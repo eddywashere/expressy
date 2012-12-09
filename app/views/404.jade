@@ -1,0 +1,6 @@
+extends layouts/application
+
+block content
+  h1 Error (500)
+    if locals.err
+      JSON.stringify(err)

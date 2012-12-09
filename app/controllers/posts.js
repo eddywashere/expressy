@@ -17,7 +17,10 @@
 
 exports.index = function(req, res){
   Post.find({}, function(err, posts){
-    if (err) return res.render('500');
+    if (err || !posts) {
+      res.status(500);
+      return res.render('500', { err : err});
+    }
     res.render('posts/index', { posts: posts });
   });
   // res.json(Post.find());
@@ -25,7 +28,10 @@ exports.index = function(req, res){
 
 exports.show = function(req, res){
   Post.findOne({ _id : req.params.id }, function(err, post){
-    if (err) return res.render('500');
+    if (err || !post) {
+      res.status(500);
+      return res.render('500');
+    }
     res.render('posts/show', { post: post });
   });
 };
@@ -38,7 +44,10 @@ exports.new = function(req, res){
 
 exports.edit = function(req, res){
   Post.findOne({ _id : req.params.id }, function(err, post){
-    if (err) return res.render('500')
+    if (err || !post) {
+      res.status(500);
+      return res.render('500', { err : err});
+    }
     res.render('posts/edit', { isEdit: true, post: post});
   });
 };
@@ -59,10 +68,14 @@ exports.create = function(req, res){
 // redirect to show
 exports.update = function(req, res){
   Post.findOne({ _id : req.params.id }, function(err, post){
-    if (err) return res.render('500');
+    if (err || !post) {
+      res.status(500);
+      return res.render('500', { err : err});
+    }
     post.title = req.body.title;
-
+    
     post.save(function(err){
+      console.log(err);
       if (err) {
         res.render('posts/' + req.params.id + '/edit', { post: post });
       } else {
@@ -75,7 +88,10 @@ exports.update = function(req, res){
 // redirect to index
 exports.destroy = function(req, res){
   Post.findOne({ _id : req.params.id }, function(err, post){
-    if (err) return res.render('500');
+    if (err || !post) {
+      res.status(500);
+      return res.render('500', { err : err});
+    }
     post.remove(function(err){
       res.redirect('/posts');
     });
