@@ -5,5 +5,5 @@ exports.development = {
 
 exports.production = {
   db: process.env.MDB || '',
-  cdn : '' // http://expressy.ewh.jit.su/
+  cdn : process.env.CDN || '' // http://expressy.ewh.jit.su/
 }
