@@ -1,80 +1,80 @@
 // base styles only
 
-body
-  font: 100%/1.5 $fonts
-  -webkit-font-smoothing: antialiased
-
+body{
+  font: 100%/1.5 @fonts;
+  -webkit-font-smoothing: antialiased;
+}
 a, a:visited {
   text-decoration: none;
-  color: $linkColor;
+  color: @linkColor;
 }
 
 a:hover {
   text-decoration: underline;
-  color: $linkHover;
+  color: @linkHover;
 }
   
 a:focus {
-  color: $linkColor; 
+  color: @linkColor; 
   outline: none;
 }
 
 p {
-  margin: 0 0 $size4;
+  margin: 0 0 @size4;
   small {
-    font-size: $size8;
-    color: $light;
+    font-size: @size8;
+    color: @light;
   }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 $size8;
-  color: $darker;
+  margin: 0 0 @size8;
+  color: @darker;
   text-rendering: optimizelegibility;
   small {
-    font-family: $fonts;
+    font-family: @fonts;
     font-weight: normal;
-    color: $dark;
+    color: @dark;
   }
 }
 
 h1 {
-  font-size: $size1
+  font-size: @size1;
   small {
-    font-size: $size3;
+    font-size: @size3;
     line-height: 1;
     display:block;
   }
 }
 h2 {
-  font-size: $size2;
+  font-size: @size2;
   //  border-bottom: 1px solid #CCC;
   small {
-    font-size: 22px;
+    font-size: @size3;
   }
 }
 h3 {
-  font-size: $size3;
-  color: $dark;
+  font-size: @size3;
+  color: @dark;
   small {
-    font-size: 16px;
+    font-size: @size4;
   }
 }
 h4, h5, h6 {
 
 }
 h4 {
-  font-size: $size4;
+  font-size: @size4;
   small {
-    font-size: 12px;
+    font-size: @size5;
   }
 }
 h5 {
-  font-size: $size5;
+  font-size: @size5;
 }
 h6 {
-  font-size: $size6;
-  color: $light;
+  font-size: @size6;
+  color: @light;
   text-transform: uppercase;
 }
 
@@ -93,32 +93,32 @@ ol ul {
 ul {
   list-style: disc;
   padding: 0;
-  margin: 0 0 $size8 $size4;
+  margin: 0 0 @size8 @size4;
 }
 ol {
   list-style: decimal;
   padding: 0;
-  margin: 0 0 $size8 $size3;
+  margin: 0 0 @size8 @size3;
 }
 li {
-  line-height: $baseLineHeight;
+  line-height: @baseLineHeight;
 }
 
 // Description Lists
 dl {
-  margin-bottom: $size8;
-  font-size:$baseFontSize;
+  margin-bottom: @size8;
+  font-size:@baseFontSize;
 }
 dt,
 dd {
-  line-height: $baseLineHeight;
+  line-height: @baseLineHeight;
 }
 dt {
   font-weight: bold;
 }
 dd {
-  margin-left: $size4;
-  font-size: $size7;
+  margin-left: @size4;
+  font-size: @size7;
 }
 
 // MISC
@@ -126,8 +126,8 @@ dd {
 
 // Horizontal rules
 hr {
-  seam()
-  margin: $baseLineHeight 0;
+  .seam;
+  margin: @baseLineHeight 0;
 }
 
 // Emphasis
@@ -149,21 +149,21 @@ abbr {
 // Blockquotes
 
 blockquote {
-  padding: 0 0 0 $size4;
-  margin: 0 0 $size4;
-  border-left: 5px solid $lighter;
-  color: $lighter;
+  padding: 0 0 0 @size4;
+  margin: 0 0 @size4;
+  border-left: 5px solid @lighter;
+  color: @lighter;
   p {
     margin-bottom: 0;
     span {
-      color: $light;
+      color: @light;
       font-style: italic;
     }
   }
   small {
     display: block;
-    line-height: $baseLineHeight;
-    color: $light;
+    line-height: @baseLineHeight;
+    color: @light;
     &:before {
       content: '\2014 \00A0';
     }

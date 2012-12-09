@@ -1,0 +1,160 @@
+/***
+  conventions via https://github.com/necolas/idiomatic-css
+
+  LAYOUT
+
+  .l-wrapper
+  - .l-header
+  -- .l-inner
+  --- .l-content
+  - .l-body
+  -- .l-inner
+  --- .l-content
+  - .l-push (keeps the sticky footer down when .l-body can't)
+  .l-footer
+  - .l-inner
+  -- .l-content
+
+  A "l-" designates layout markup.
+
+  STICKY FOOTER
+  .l-wrapper & .l-push keep the footer sticky when .l-body content can't
+
+  APP-FRAME
+  
+
+  Properties ordered by position > display/box > color > text > other
+  @tag This is a tag named 'tag'
+  @todo This is a todo statement that describes an atomic task to be completed
+
+***/
+
+/***
+  App Frame
+***/
+
+.l-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #333;
+  line-height: 1;
+  z-index: 10;
+}
+
+.l-inner{
+  margin: 0 1em;
+}
+
+.l-logo {
+  float: left;
+}
+
+.l-logo a {
+  display: block;
+  width: 130px;
+  text-align: center;
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 1em;
+  line-height: 1;
+  background: url("/img/logo.png") no-repeat center center;
+}
+
+.l-logo a:hover {
+  background-color: rgba(0,0,0,0.12)
+}
+
+.l-menu {
+  margin: 0;
+  padding: 0;
+}
+
+.l-menu > li {
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1;
+}
+
+.l-menu > li > a{
+  float: left;
+  padding: 1em;
+  text-decoration: none;
+  color: #e8e8e8;
+}
+
+.l-menu > li > a:hover{
+  background-color: rgba(0,0,0,0.12)
+}
+
+.l-content {
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 64em}
+
+.l-body{
+  padding-top: 4em;
+  background: #fff;
+}
+
+.l-footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #ccc;
+  text-align: center;
+  z-index: 10;
+}
+
+.l-footer-inner{
+  margin: 0 1em;
+}
+
+/***
+  Sticky Footer
+***/
+
+html, body { 
+  height: 100%;
+}
+
+body > .l-wrapper {
+  min-height:100%;
+  height:auto !important;
+  height:100%;
+  margin:0 auto -2em;
+}
+
+/* .l-push must be the same height as .l-footer */
+.l-footer, .l-push {
+  height: 2em;
+}
+
+/* identify footer content height and update .l-footer and .l-push */
+.l-footer p {
+  padding: .5em 1em;
+  margin: 0;
+  line-height: 1;
+}
+
+/* Sans-App-Frame for shorter viewports */
+@media only screen and (max-height: 37.5em){
+  .l-header, .l-footer {
+    position:relative;
+  }
+  .l-body {
+    padding-top:1em;
+  }
+}
+
+/***
+  End Sticky Footer
+***/

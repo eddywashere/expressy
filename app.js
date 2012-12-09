@@ -1,9 +1,8 @@
 var express = require('express')
   , http = require('http')
   , fs = require('fs')
-  , nib = require('nib')
-  , stylus = require('stylus')
   , path = require('path')
+  , lessMiddleware = require('less-middleware')
   , env = process.env.NODE_ENV || 'development'
   , config = require('./config/environments')[env];
 
@@ -12,6 +11,17 @@ require('./config/db')(config.db);
 
 // create the express app
 var app = express();
+
+app.configure('development', function(){
+  app.use(express.errorHandler());
+  app.locals.pretty = true;
+  app.use(lessMiddleware({
+      dest: __dirname + '/public',
+      src: __dirname + '/app/assets',
+      optimization: 2,
+      compress: true
+  }));
+});
 
 // configure express
 app.configure(function(){
@@ -24,6 +34,8 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(express.compress());
+  app.use(express.responseTime());
   app.use(express.cookieParser('woot woot woot'));
   app.use(express.session());
   app.use(express.csrf());
@@ -32,24 +44,7 @@ app.configure(function(){
     next();
   });
   app.use(app.router);
-  app.use(stylus.middleware({
-    src: __dirname + '/app/assets',
-    dest: __dirname + '/public',
-    debug: true,
-    compile: function(str, path) { // optional, but recommended
-      return stylus(str)
-      .set('filename', path)
-      .set('warn', true)
-      .set('compress', false)
-      .use(nib());
-    }  
-  }));
   app.use(express.static(__dirname + '/public'));
-});
-
-app.configure('development', function(){
-  app.use(express.errorHandler());
-  app.locals.pretty = true;
 });
 
 // configure app routes

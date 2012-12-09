@@ -17,16 +17,16 @@ html(class='no-js')
     if (locals.token)
       meta(content="#{token}", name="csrf-token")
   body
-    .wrapper
+    .l-wrapper
       include /_header
-      section.l-content
+      .l-body
         .l-inner
-          .l-container
+          .l-content
             block content
       | <div class="push"><!--//--></div>
     footer.l-footer
       .l-inner
-        .l-container
+        .l-content
           p footer content
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
     script window.jQuery || document.write('<script src="#{settings.cdn}/js/jquery.js"><\\/script>')
