@@ -1,6 +1,7 @@
-// Include the cluster module
-var cluster = require('cluster');
+// Cluster code from
+// https://github.com/rowanmanning/learning-express-cluster
 
+var cluster = require('cluster');
 // Code to run if we're in the master process
 if (cluster.isMaster) {
   var cpuCount = 1;
