@@ -2,7 +2,7 @@
 
 Just another express mvc boilerplate. I built this to learn and explore app development with express.
 
-This recipe includes jade templating with coffee & stylus for the clientside. Build's upon the basic app but *will have a bit more organization and features. Uses mongodb via mongoose.
+This recipe includes jade templating with stylus. Build's upon the default express app but *will have a bit more organization and features. Uses mongodb via mongoose.
 
 ## Instructions
 
@@ -25,16 +25,6 @@ Preview your app with
 Start app with
 
     npm production
-
-If you like coffee, compile it with
-
-    npm run-script brew
-
-### Notes:
-
-- still not sure about coffeescript, but its there
-    - I wish there was an awesome connect middleware equivalent to stylus for coffeescript
-        - actually, I wish there was a solid asset manager like sprockets :[
 
 ### Todo:
 
