@@ -12,8 +12,7 @@ html(class='no-js')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
     title= locals.title ? title : "expressy"
-    link(rel='stylesheet', href='#{settings.cdn}/css/style.css')
-    script(src='#{settings.cdn}/js/modernizr.js')
+    != css('application.css')
     if (locals.token)
       meta(content="#{token}", name="csrf-token")
   body

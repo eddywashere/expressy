@@ -2,7 +2,7 @@ var express = require('express')
   , http = require('http')
   , fs = require('fs')
   , path = require('path')
-  , lessMiddleware = require('less-middleware')
+  , ConnectMincer = require('connect-mincer')
   , env = process.env.NODE_ENV || 'development'
   , config = require('./config/environments')[env];
 
@@ -12,15 +12,24 @@ require('./config/db')(config.db);
 // create the express app
 var app = express();
 
+var connectMincer = new ConnectMincer({
+  root: __dirname,
+  production: env === 'production' || env === 'staging',
+  mountPoint: '/assets',
+  manifestFile: __dirname + '/public/assets/manifest.json',
+  paths: [
+    'app/assets/css',
+    'app/assets/js',
+    'app/assets/img'
+  ]
+});
+
+app.use(connectMincer.assets());
+
 app.configure('development', function(){
   app.use(express.errorHandler());
   app.locals.pretty = true;
-  app.use(lessMiddleware({
-      dest: __dirname + '/public',
-      src: __dirname + '/app/assets',
-      optimization: 2,
-      compress: true
-  }));
+  app.use('/assets', connectMincer.createServer());
 });
 
 // configure express
@@ -43,6 +52,7 @@ app.configure(function(){
     res.locals.token = req.session._csrf;
     next();
   });
+
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 });
