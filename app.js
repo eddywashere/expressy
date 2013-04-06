@@ -3,26 +3,21 @@ var cluster = require('cluster');
 
 // Code to run if we're in the master process
 if (cluster.isMaster) {
-    var cpuCount = 1;
-
-    // Count the machine's CPUs
-    if (process.env.NODE_ENV = "development") {
-      cpuCount = require('os').cpus().length;
-    }
-
-    // Create a worker for each CPU
-    for (var i = 0; i < cpuCount; i += 1) {
-        cluster.fork();
-    }
-
-    // Listen for dying workers
-    cluster.on('exit', function (worker) {
-
-        // Replace the dead worker, we're not sentimental
-        console.log('Worker ' + worker.id + ' died :(');
-        cluster.fork();
-
-    });
+  var cpuCount = 1;
+  // Count the machine's CPUs
+  if (process.env.NODE_ENV != "development") {
+    cpuCount = require('os').cpus().length;
+  }
+  // Create a worker for each CPU
+  for (var i = 0; i < cpuCount; i += 1) {
+    cluster.fork();
+  }
+  // Listen for dying workers
+  cluster.on('exit', function (worker) {
+    // Replace the dead worker, we're not sentimental
+    console.log('Worker ' + worker.id + ' died :(');
+    cluster.fork();
+  });
 
 // Code to run if we're in a worker process
 } else {
@@ -91,7 +86,6 @@ if (cluster.isMaster) {
 
   // run that server
   http.createServer(app).listen(app.get('port'), function(){
-    console.log("Express server listening on port " + app.get('port'));
+    console.log("CLUSTER-" + cluster.worker.id + ": Express server listening on port " + app.get('port'));
   });
-
 }
